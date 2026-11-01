@@ -1,0 +1,4 @@
+dependencies:
+  brookesia_core:
+    path: ../brookesia_core
+    public: true

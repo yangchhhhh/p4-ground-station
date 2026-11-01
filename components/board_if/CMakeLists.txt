@@ -1,0 +1,39 @@
+idf_component_register(
+    SRCS
+        "board_if.c"
+        "board_if_i2c_scan.c"
+        "board_if_gy87.c"
+        "board_if_drone_link.c"
+        "board_if_net.c"
+        "board_if_storage.c"
+        "board_if_audio.c"
+        "board_if_humid.c"
+        "board_if_place.c"
+        "board_if_gps.c"
+    INCLUDE_DIRS "include"
+    REQUIRES
+        driver
+        esp_driver_uart
+        esp_driver_i2c
+        fatfs
+        sdmmc
+        esp_driver_sdmmc
+        esp_event
+        esp_netif
+        nvs_flash
+        esp_timer
+        esp_http_client
+        esp_http_server
+        mqtt
+        esp_wifi
+        esp_wifi_remote
+        esp_hosted
+        esp32_p4_wifi6_touch_lcd_4_3
+)
+
+set_source_files_properties(
+    board_if_humid.c
+    board_if_gps.c
+    PROPERTIES
+        COMPILE_FLAGS "-Wno-missing-field-initializers"
+)
